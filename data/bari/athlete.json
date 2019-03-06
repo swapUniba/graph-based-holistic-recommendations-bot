@@ -1,0 +1,11 @@
+{
+	"history":{
+		"cena":["Pub","Ristorante","Parchi","Insalate"],
+		"buon_umore":["Creperie","Piatti a base di pesce"],
+		"no_attivita":["Insalate"],
+		"si_attivita":["Irish pub"],
+		"weekend":["Barbecue","Birreria","Gelaterie"],
+		"settimana":["Frullati/Succhi/Centrifugati","Musei","Lounge bar"],
+		"colazione":["Bar", "Bar con sport in TV"]
+	}
+}
