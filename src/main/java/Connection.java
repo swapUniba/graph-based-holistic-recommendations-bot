@@ -15,12 +15,18 @@ public class Connection {
     public static String ask2server(String user, ArrayList<String> user_context, String type) throws IOException {
 
         String rr = new String();
-        String fpjson = new String();
+        String fpjson = "";
 
-        switch (type){
-            case "athlete": fpjson = "data/bari/athlete.json"; break;
-            case "bad_habits": fpjson = "data/bari/bad_habits.json"; break;
-            case "grown_up": fpjson = "data/bari/grown-up.json"; break;
+        switch (type) {
+            case "athlete":
+                fpjson = "data/bari/athlete.json";
+                break;
+            case "bad_habits":
+                fpjson = "data/bari/bad_habits.json";
+                break;
+            case "grown_up":
+                fpjson = "data/bari/grown-up.json";
+                break;
         }
         //INSERT USER
         JSONObject result = new JSONObject();
@@ -41,9 +47,11 @@ public class Connection {
 
         CloseableHttpClient httpClient = HttpClientBuilder.create().build();
 
+        System.out.println(result);
+
         try {
             HttpPost request = new HttpPost("https://graph-recommender.herokuapp.com/recommendation/post");
-            StringEntity params = new StringEntity(result.toString());
+            StringEntity params = new StringEntity(result.toString(), "UTF-8");
             request.addHeader("content-type", "application/json");
             request.setEntity(params);
             HttpResponse response = httpClient.execute(request);
@@ -57,6 +65,7 @@ public class Connection {
         } finally {
             httpClient.close();
         }
+        System.out.println(rr.toString());
         return rr.toString();
     }
 }

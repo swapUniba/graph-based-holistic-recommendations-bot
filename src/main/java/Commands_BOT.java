@@ -32,7 +32,6 @@ public class Commands_BOT {
 
         JSONObject r = new JSONObject(result);
         Iterator<String> keys = r.keys();
-
         while (keys.hasNext()) {
             String key = keys.next();
             if (r.get(key) instanceof JSONObject) {

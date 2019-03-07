@@ -1,14 +1,89 @@
 {
-	"history":{
-		"colazione":["Bar","Bar con sport in TV","Caffè"],
-		"pranzo":["Bistrot","Panini/Sandwich","Panifici"],
-		"cena":["Pub","Birreria","Panini/Sandwich","Wine bar"],
-		"buon_umore":["Arene/Sale da concerto","Cucina messicana","Cucina napoletana","Cucina pugliese","Creperie","Cucina cinese","Cucina greca","Dolci","Gelaterie","Pasticcerie","Pizzerie","Ristoranti","Wine bar"],
-		"cattivo_umore":["Fast food","Insalate"],
-		"amici":["Pub","Birreria","Cocktail bar","Trattorie","Friggitorie","Hamburger"],
-		"partner":["Ristorante","Colazioni/Brunch","Cucina italiana","Pasticcerie","Dolci","Monumenti/Luoghi storici e d interesse","Musei","Lounge bar","Cucina messicana","Cucina pugliese","Piatti a base di pesce"],
-		"famiglia":["Monumenti/Luoghi storici e d interesse","Musei","Gelaterie","Ristoranti","Zuppe","Creperie","Barbecue","Cucina italiana","Pizzerie","Parchi"],
-		"weekend":["Barbecue","Birreria","Gelaterie","Arene/Sale da concerto","Cucina messicana","Pasticcerie","Yogurterie","Monumenti/Luoghi storici e d interesse","Musei","Parchi"],
-		"settimana":["Bar con sport in TV","Norcinerie","Panzerotti"]
-	}
+  "history": {
+    "colazione": [
+      "Bar",
+      "Bar con sport in TV",
+      "Caffè"
+    ],
+    "pranzo": [
+      "Bistrot",
+      "Panini/Sandwich",
+      "Panifici"
+    ],
+    "cena": [
+      "Pub",
+      "Birreria",
+      "Panini/Sandwich",
+      "Wine bar"
+    ],
+    "buon_umore": [
+      "Arene/Sale da concerto",
+      "Cucina messicana",
+      "Cucina napoletana",
+      "Cucina pugliese",
+      "Creperie",
+      "Cucina cinese",
+      "Cucina greca",
+      "Dolci",
+      "Gelaterie",
+      "Pasticcerie",
+      "Pizzerie",
+      "Ristoranti",
+      "Wine bar"
+    ],
+    "cattivo_umore": [
+      "Fast food",
+      "Insalate"
+    ],
+    "amici": [
+      "Pub",
+      "Birreria",
+      "Cocktail bar",
+      "Trattorie",
+      "Friggitorie",
+      "Hamburger"
+    ],
+    "partner": [
+      "Ristorante",
+      "Colazioni/Brunch",
+      "Cucina italiana",
+      "Pasticcerie",
+      "Dolci",
+      "Monumenti/Luoghi storici e d interesse",
+      "Musei",
+      "Lounge bar",
+      "Cucina messicana",
+      "Cucina pugliese",
+      "Piatti a base di pesce"
+    ],
+    "famiglia": [
+      "Monumenti/Luoghi storici e d interesse",
+      "Musei",
+      "Gelaterie",
+      "Ristoranti",
+      "Zuppe",
+      "Creperie",
+      "Barbecue",
+      "Cucina italiana",
+      "Pizzerie",
+      "Parchi"
+    ],
+    "weekend": [
+      "Barbecue",
+      "Birreria",
+      "Gelaterie",
+      "Arene/Sale da concerto",
+      "Cucina messicana",
+      "Pasticcerie",
+      "Yogurterie",
+      "Monumenti/Luoghi storici e d interesse",
+      "Musei",
+      "Parchi"
+    ],
+    "settimana": [
+      "Bar con sport in TV",
+      "Norcinerie",
+      "Panzerotti"
+    ]
+  }
 }

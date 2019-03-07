@@ -78,7 +78,7 @@ public class mine_bot extends TelegramLongPollingBot {
     }
 
     public String getBotToken() {
-        return "732905364:AAHdrxM4PkNAEr8gjh9sFS1Gh-2796bfeWI";
+        return "";
     }
 
 
