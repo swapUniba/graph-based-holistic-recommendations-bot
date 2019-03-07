@@ -21,7 +21,7 @@ public class mine_bot extends TelegramLongPollingBot {
         if (command.equals("/Athlete")){
             try {
                 p = Connection.ask2server(update.getMessage().getFrom().getFirstName(), ac,"athlete");
-                System.out.println(p);
+                //System.out.println(p);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -36,7 +36,7 @@ public class mine_bot extends TelegramLongPollingBot {
         if (command.equals("/BadHabits")){
             try {
                 p = Connection.ask2server(update.getMessage().getFrom().getFirstName(), ac,"bad_habits");
-                System.out.println(p);
+                //System.out.println(p);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -51,7 +51,7 @@ public class mine_bot extends TelegramLongPollingBot {
         if (command.equals("/GrownUp")){
             try {
                 p = Connection.ask2server(update.getMessage().getFrom().getFirstName(), ac,"grown_up");
-                System.out.println(p);
+                //System.out.println(p);
             } catch (IOException e) {
                 e.printStackTrace();
             }
