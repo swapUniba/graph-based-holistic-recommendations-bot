@@ -5,71 +5,86 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class mine_bot extends TelegramLongPollingBot {
 
+    ArrayList<String> user_context = new ArrayList<>();
 
     public void onUpdateReceived(Update update) {
 
-        String command = update.getMessage().getText();
-        String p = "";
+        if (update.hasMessage() && update.getMessage().hasText()) {
+            String command = update.getMessage().getText();
+            String p = "";
+            HashMap<String, ArrayList<String>> contesti = new HashMap<>();
+            contesti = ReadFile.getContestoGrado("data/bari/contesti.txt");
 
-        ArrayList<String> ac = new ArrayList<>();
-        ac.add("amici");
-        ac.add("weekend");
+            if (command.equals("/start")) {
+                try {
+                    run.run_questions(this, update, contesti);
+                } catch (TelegramApiException e) {
+                    e.printStackTrace();
+                }
+            }
 
-        if (command.equals("/Athlete")){
-            try {
-                p = Connection.ask2server(update.getMessage().getFrom().getFirstName(), ac,"athlete");
-                //System.out.println(p);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            SendMessage sm = Commands_BOT.give_recommendations(update, p);
-            try {
-                execute(sm);
-            } catch (TelegramApiException e) {
-                e.printStackTrace();
-            }
-        }
 
-        if (command.equals("/BadHabits")){
-            try {
-                p = Connection.ask2server(update.getMessage().getFrom().getFirstName(), ac,"bad_habits");
-                //System.out.println(p);
-            } catch (IOException e) {
-                e.printStackTrace();
+            if (command.equals("/Athlete")) {
+                try {
+                    run.run_experiment(this, user_context, update, "athlete");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
-            SendMessage sm1 = Commands_BOT.give_recommendations(update, p);
-            try {
-                execute(sm1);
-            } catch (TelegramApiException e) {
-                e.printStackTrace();
-            }
-        }
 
-        if (command.equals("/GrownUp")){
-            try {
-                p = Connection.ask2server(update.getMessage().getFrom().getFirstName(), ac,"grown_up");
-                //System.out.println(p);
-            } catch (IOException e) {
-                e.printStackTrace();
+            if (command.equals("/BadHabits")) {
+                try {
+                    run.run_experiment(this, user_context, update, "bad_habits");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
-            SendMessage sm = Commands_BOT.give_recommendations(update, p);
-            try {
-                execute(sm);
-            } catch (TelegramApiException e) {
-                e.printStackTrace();
-            }
-        }
 
-        if (command.equals("/recommendations")) {
-            SendMessage menu = Commands_BOT.showMenu(update);
-            try {
-                execute(menu);
-            } catch (TelegramApiException e) {
-                e.printStackTrace();
+            if (command.equals("/GrownUp")) {
+                try {
+                    run.run_experiment(this, user_context, update, "grown_up");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
+
+            if (command.equals("/recommendations")) {
+                SendMessage menu = Commands_BOT.showMenu(update);
+                try {
+                    execute(menu);
+                } catch (TelegramApiException e) {
+                    e.printStackTrace();
+                }
+            }
+
+
+        } else if (update.hasCallbackQuery()) {
+            String call_data = update.getCallbackQuery().getData();
+            long message_id = update.getCallbackQuery().getMessage().getMessageId();
+            long chat_id = update.getCallbackQuery().getMessage().getChatId();
+
+            if(!call_data.equals("End")){
+                if(!user_context.contains(call_data)){
+                    user_context.add(call_data);
+                    System.out.println(call_data);
+                }
+            }else{
+                System.out.println("ciao");
+                SendMessage msg = new SendMessage();
+                msg.setChatId(chat_id);
+                msg.setText("Well done! This is your context:\n"+user_context.toString()+"\nNow digits /recommendations ");
+                System.out.println(user_context);
+                try {
+                    this.execute(msg);
+                } catch (TelegramApiException e) {
+                    e.printStackTrace();
+                }
+            }
+
         }
     }
 

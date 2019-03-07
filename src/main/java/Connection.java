@@ -12,7 +12,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class Connection {
-    public static String ask2server(String user, ArrayList<String> user_context, String type) throws IOException {
+
+
+    public static String ask_recommendations(String user, ArrayList<String> user_context, String type) throws IOException {
 
         String rr = new String();
         String fpjson = "";
@@ -47,8 +49,6 @@ public class Connection {
 
         CloseableHttpClient httpClient = HttpClientBuilder.create().build();
 
-        System.out.println(result);
-
         try {
             HttpPost request = new HttpPost("https://graph-recommender.herokuapp.com/recommendation/post");
             StringEntity params = new StringEntity(result.toString(), "UTF-8");
@@ -65,7 +65,6 @@ public class Connection {
         } finally {
             httpClient.close();
         }
-        System.out.println(rr.toString());
         return rr.toString();
     }
 }

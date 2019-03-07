@@ -5,9 +5,10 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ReadFile {
-    public static ArrayList<String> getContesti(String filename) {
+    public static HashMap<String, ArrayList<String>> getContestoGrado(String filename) {
         File file = new File(filename);
 
         BufferedReader br = null;
@@ -19,8 +20,8 @@ public class ReadFile {
 
         String st = "";
         String[] all;
+        HashMap<String, ArrayList<String>> contestogrado = new HashMap<>();
         ArrayList<String> contesti = new ArrayList<String>();
-        String appartenenza_contesti = "";
         while (true) {
             ArrayList<String> temp = new ArrayList<>();
             try {
@@ -30,13 +31,20 @@ public class ReadFile {
             }
             all = st.split("=");
             contesti.add(all[1]);
+            if(contestogrado.containsKey(all[0])){
+                contestogrado.get(all[0]).add(all[1]);
+            }else{
+                ArrayList<String> v = new ArrayList<>();
+                v.add(all[1]);
+                contestogrado.put(all[0],v);
+            }
         }
         try {
             br.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return contesti;
+        return contestogrado;
     }
 
     public static JSONObject parseJSONFile(String filename) throws JSONException, IOException {
