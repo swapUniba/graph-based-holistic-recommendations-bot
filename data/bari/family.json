@@ -1,0 +1,11 @@
+{
+  "history": {
+    "pranzo": ["Ristoranti","Cucina italiana"],
+    "cena": ["Pizzerie"],
+    "buon_umore": ["Parchi","Dolci","Gelaterie"],
+    "partner": ["Ristorante","Colazioni/Brunch","Musei","Wine bar"],
+    "famiglia": ["Gelaterie","Ristoranti","Pizzerie","Parchi"],
+    "weekend": ["Parchi","Ristoranti"],
+    "settimana": ["Panzerotti"]
+  }
+}

@@ -13,21 +13,20 @@ import java.util.Iterator;
 
 public class Connection {
 
-
     public static String ask_recommendations(String user, ArrayList<String> user_context, String type) throws IOException {
 
         String rr = new String();
         String fpjson = "";
 
         switch (type) {
-            case "athlete":
+            case "healthy":
                 fpjson = "data/bari/athlete.json";
                 break;
-            case "bad_habits":
+            case "unhealthy":
                 fpjson = "data/bari/bad_habits.json";
                 break;
-            case "grown_up":
-                fpjson = "data/bari/grown-up.json";
+            case "family":
+                fpjson = "data/bari/family.json";
                 break;
         }
         //INSERT USER

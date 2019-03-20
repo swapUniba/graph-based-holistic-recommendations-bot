@@ -1,34 +1,10 @@
 {
   "history": {
-    "cena": [
-      "Pub",
-      "Ristorante",
-      "Parchi",
-      "Insalate"
-    ],
-    "buon_umore": [
-      "Creperie",
-      "Piatti a base di pesce"
-    ],
-    "no_attivita": [
-      "Insalate"
-    ],
-    "si_attivita": [
-      "Irish pub"
-    ],
-    "weekend": [
-      "Barbecue",
-      "Birreria",
-      "Gelaterie"
-    ],
-    "settimana": [
-      "Frullati/Succhi/Centrifugati",
-      "Musei",
-      "Lounge bar"
-    ],
-    "colazione": [
-      "Bar",
-      "Bar con sport in TV"
-    ]
+    "cena": ["Cucina italiana"],
+    "pranzo": ["Insalate","Piatti a base di pesce"],
+    "buon_umore": ["Caffetteria"],
+    "weekend": ["Trattorie","Ristoranti"],
+    "settimana": ["Frullati/Succhi/Centrifugati","Parchi","Insalate"],
+    "colazione": ["Bar"]
   }
 }

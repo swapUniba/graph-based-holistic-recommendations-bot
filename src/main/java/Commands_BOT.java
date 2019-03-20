@@ -5,7 +5,6 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
-import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardButton;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow;
 
 import java.io.BufferedReader;
@@ -35,14 +34,13 @@ public class Commands_BOT {
 
         br.close();
         return dict;
-
     }
 
     public static SendMessage showMenu(Update u) {
         SendMessage menu = new SendMessage();
         menu.setChatId(u.getMessage().getChatId());
-        menu.setText("Hello " + u.getMessage().getFrom().getFirstName() + ", tell me what predefined mood you belong:\n1- /Athlete" +
-                "\n2- /BadHabits\n3- /GrownUp\n");
+        menu.setText("Hello " + u.getMessage().getFrom().getFirstName() + ", tell me what's your lifestyle:\n1- /healthy" +
+                "\n2- /unhealthy\n3- /family\n");
         return menu;
     }
 
@@ -78,6 +76,7 @@ public class Commands_BOT {
         String text = "";
 
         HashMap<String, String> dizionario = getPlacesNew();
+
         /*for (Map.Entry<String, String> entry : dizionario.entrySet()){
             System.out.println(entry.getKey()+"\t"+entry.getValue());
         }*/
@@ -100,11 +99,12 @@ public class Commands_BOT {
                 for (int i = 0; i < keys_indexing.length(); i++) {
                     text += "###\t\t" + keys_indexing.getString(i) + "\n";
                     if (dizionario.containsKey(keys_indexing.getString(i))) {
-                        text += dizionario.get(keys_indexing.getString(i)) + "\n";
+                        text += (dizionario.get(keys_indexing.getString(i))).replace("'","") + "\n";
                     }
                 }
             }
         }
+
         /*for (String x : contesti) {
             KeyboardRow kbr = new KeyboardRow();
             kbr.add(new KeyboardButton(x));
@@ -123,8 +123,12 @@ public class Commands_BOT {
 
         markup.setKeyboard(rows);
         msg2send.setReplyMarkup(markup);*/
+
         msg2send.setChatId(u.getMessage().getChatId());
         msg2send.setText(text);
         return msg2send;
     }
 }
+
+
+

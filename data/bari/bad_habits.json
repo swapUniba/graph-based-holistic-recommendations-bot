@@ -1,79 +1,12 @@
 {
   "history": {
-    "colazione": [
-      "Bar",
-      "Bar con sport in TV"
-    ],
-    "pranzo": [
-      "Cucina pugliese",
-      "Friggitorie",
-      "Fast food",
-      "Cucina pugliese",
-      "Panzerotti"
-    ],
-    "cena": [
-      "Pub",
-      "Birreria",
-      "Cucina messicana",
-      "Cucina napoletana",
-      "Cucina pugliese",
-      "Friggitorie",
-      "Fast food",
-      "Norcinerie",
-      "Panzerotti"
-    ],
-    "buon_umore": [
-      "Arene/Sale da concerto",
-      "Cucina messicana",
-      "Cucina napoletana",
-      "Cucina pugliese",
-      "Friggitorie",
-      "Lounge bar"
-    ],
-    "cattivo_umore": [
-      "Pub",
-      "Birreria"
-    ],
-    "amici": [
-      "Pub",
-      "Birreria",
-      "Ristorante",
-      "Caffè",
-      "Cocktail bar",
-      "Colazioni/Brunch",
-      "Cucina napoletana",
-      "Cucina mediterranea",
-      "Trattorie",
-      "Friggitorie"
-    ],
-    "partner": [
-      "Ristorante",
-      "Cocktail bar",
-      "Colazioni/Brunch",
-      "Cucina italiana",
-      "Pasticcerie"
-    ],
-    "weekend": [
-      "Barbecue",
-      "Birreria",
-      "Gelaterie",
-      "Arene/Sale da concerto",
-      "Cucina messicana",
-      "Bar con sport in TV",
-      "Friggitorie",
-      "Pub",
-      "Norcinerie",
-      "Panzerotti",
-      "Pasticcerie",
-      "Trattorie",
-      "Yogurterie"
-    ],
-    "settimana": [
-      "Bar con sport in TV",
-      "Friggitorie",
-      "Pub",
-      "Norcinerie",
-      "Panzerotti"
-    ]
+    "colazione": ["Bar"],
+    "pranzo": ["Fast food", "Hamburger","Panzerotti"],
+    "cena": ["Pub","Birreria","Cucina messicana"],
+    "buon_umore": ["Cucina napoletana","Friggitorie"],
+    "cattivo_umore": ["Creperie"],
+    "amici": ["Pub","Birreria","Cucina napoletana","Cucina giapponese"],
+    "weekend": ["Birreria","Cucina messicana","Cucina giapponese"],
+    "settimana": ["Pub","Panzerotti"]
   }
 }

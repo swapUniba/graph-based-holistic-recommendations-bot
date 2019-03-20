@@ -10,16 +10,18 @@ import java.util.HashMap;
 public class mine_bot extends TelegramLongPollingBot {
 
     ArrayList<String> user_context = new ArrayList<>();
+    HashMap<String, ArrayList<String>> contesti = new HashMap<>();
+    HashMap<String, String> valore_contesto = new HashMap<>();
 
     public void onUpdateReceived(Update update) {
 
         if (update.hasMessage() && update.getMessage().hasText()) {
             String command = update.getMessage().getText();
-            String p = "";
-            HashMap<String, ArrayList<String>> contesti = new HashMap<>();
-            contesti = ReadFile.getContestoGrado("data/bari/contesti.txt");
 
             if (command.equals("/start")) {
+                user_context.clear();
+                contesti = ReadFile.getContestoGrado("data/bari/contesti.txt");
+                valore_contesto = ReadFile.getGradoContesto("data/bari/contesti.txt");
                 try {
                     run.run_questions(this, update, contesti);
                 } catch (TelegramApiException e) {
@@ -28,25 +30,25 @@ public class mine_bot extends TelegramLongPollingBot {
             }
 
 
-            if (command.equals("/Athlete")) {
+            if (command.equals("/healthy")) {
                 try {
-                    run.run_experiment(this, user_context, update, "athlete");
+                    run.run_experiment(this, user_context, update, "healthy");
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
 
-            if (command.equals("/BadHabits")) {
+            if (command.equals("/unhealthy")) {
                 try {
-                    run.run_experiment(this, user_context, update, "bad_habits");
+                    run.run_experiment(this, user_context, update, "unhealthy");
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
 
-            if (command.equals("/GrownUp")) {
+            if (command.equals("/family")) {
                 try {
-                    run.run_experiment(this, user_context, update, "grown_up");
+                    run.run_experiment(this, user_context, update, "family");
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -69,11 +71,18 @@ public class mine_bot extends TelegramLongPollingBot {
 
             if(!call_data.equals("End")){
                 if(!user_context.contains(call_data)){
+                    if(valore_contesto.containsKey(call_data)){
+                        ArrayList<String> temp_available_valori = contesti.get(valore_contesto.get(call_data));
+                        for (String x: temp_available_valori){
+                            if(x != call_data && user_context.contains(x)){
+                                user_context.remove(x);
+                            }
+                        }
+                    }
                     user_context.add(call_data);
                     System.out.println(call_data);
                 }
             }else{
-                System.out.println("ciao");
                 SendMessage msg = new SendMessage();
                 msg.setChatId(chat_id);
                 msg.setText("Well done! This is your context:\n"+user_context.toString()+"\nNow digits /recommendations ");
@@ -93,7 +102,7 @@ public class mine_bot extends TelegramLongPollingBot {
     }
 
     public String getBotToken() {
-        return "";
+        return "700184595:AAFMeoNS7EN4AjmuAEuzRCnQ49qdWqVmNGg";
     }
 
 
