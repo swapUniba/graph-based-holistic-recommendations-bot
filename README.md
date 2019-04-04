@@ -1,6 +1,6 @@
 # Telegram BOT for Graph-based Context-aware Holistic Recommendations
 
-This is the code of Telegram BOT in order to make usable our Graph-based, through by API.
+This is the code of Telegram BOT in order to make usable our Graph-based Holistic Recommendations.
 
 This BOT is currently hosted on Heroku at:
 ```
